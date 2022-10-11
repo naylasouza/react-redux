@@ -1,11 +1,15 @@
-const actions = {
-    decrement: () => ({
-        type: 'COUNTER_DECREMENT'
-    }),
-    increment: () => ({
-        type: 'COUNTER_INCREMENT'
-    })
+// const actions = {
+//     decrement: () => ({
+//         type: 'COUNTER_DECREMENT'
+//     }),
+//     increment: () => ({
+//         type: 'COUNTER_INCREMENT'
+//     })
     
-}
+// }
 
-export { actions }
+export const decrement = { type: 'COUNTER_DECREMENT'}
+export const increment = { type: 'COUNTER_INCREMENT'}
+
+
+// export { actions }

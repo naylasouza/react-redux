@@ -1,23 +1,42 @@
-import React from "react";
-import { connect } from "react-redux";
-import { actions } from "../actions/counter"
+import React, {useEffect} from "react";
+import { connect, useSelector, useDispatch } from "react-redux";
+import { actions, decrement, increment } from "../actions/counter"
 
-const Counter = ({counter, decrement,increment }) => {
+
+const Counter = () => {
+ // const Counter = ({counter, decrement, increment }) => {
+    const couterState = useSelector((state) => state.counterReducers.counter);
+    const dispatch = useDispatch();
+
+    const batata = () => {
+        console.log("batata")
+        dispatch(decrement)
+    }
+
+    const pipoca = () => {
+        console.log("pipoca")
+        dispatch(increment)
+    }
+
+
+
     return(
-        <><h1> Counter: {counter} </h1><ul>
-            <li><button onClick={decrement}>Decremente</button></li>
-            <li><button onClick={increment}>Incremente</button></li>
+        <><h1> Counter: {couterState} </h1><ul>
+            <li><button onClick={batata}>Decremente</button></li>
+            <li><button onClick={pipoca}>Incremente</button></li>
         </ul></>
     )
 }
 
-const mapStateToProps = state => ({
-    counter: state.counterReducers.counter
-})
+export default Counter
 
-const mapDispatchToProps = dispatch => ({
-    decrement: () => dispatch(actions.decrement()),
-    increment: () => dispatch(actions.increment())
-})
+// const mapStateToProps = state => ({
+//     counter: state.counterReducers.counter
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+// const mapDispatchToProps = dispatch => ({
+//     decrement: () => dispatch(actions.decrement()),
+//     increment: () => dispatch(actions.increment())
+// })
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Counter);
